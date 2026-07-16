@@ -1,7 +1,9 @@
 <h1 align="center">Xinyu Zhang</h1>
 
 <p align="center">
-  <code>TPU Architecture</code> · <code>Database Systems</code> · <code>Low-Level Systems</code>
+  <img src="https://img.shields.io/badge/TPU-Architecture-4285F4?style=flat-square" alt="TPU Architecture">
+  <img src="https://img.shields.io/badge/Database-Systems-34A853?style=flat-square" alt="Database Systems">
+  <img src="https://img.shields.io/badge/Low--Level-Systems-EA4335?style=flat-square" alt="Low-Level Systems">
 </p>
 
 <p align="center">
@@ -17,35 +19,42 @@ layout down to memory movement and accelerator architecture.
 
 ## `current focus`
 
-- Building and benchmarking database operators on Google Cloud TPU
-- Exploring how joins, aggregations, and irregular access patterns map to
-  SparseCore, MXU, and vector hardware
-- Profiling bottlenecks across compute, memory bandwidth, data layout, and host
-  transfers
-- Developing a stronger low-level foundation through operating systems and
-  computer architecture
+- Studying database execution on Google Cloud TPU
+- Understanding how query processing and data movement interact with
+  accelerator architecture
+- Building a low-level foundation through operating systems, concurrency, and
+  processor design
+
+```mermaid
+flowchart LR
+    A[Database workloads] --> B[Query execution]
+    B --> C[Data layout and movement]
+    C --> D[TPU architecture]
+    D --> E[Systems analysis]
+```
 
 ## `selected work`
 
 ### [TPU-DB](https://github.com/samixyzdev/tpu-db)
 
 Google-sponsored research at Michigan CSE on accelerating analytical database
-queries with TPUs. I develop Pallas kernels for multi-table joins and GROUP-BY
-aggregation, investigate SparseCore and MXU execution strategies, and compare
-TPU implementations against CPU and GPU baselines.
+queries with TPUs. I use JAX and Pallas to study query execution, data layout,
+and the relationship between database operators and specialized hardware.
 
-Recent work includes a fused vectorized HBM path that reached a 25x speedup over
-DuckDB on an SSB query, along with chunked execution that reduced peak HBM usage
-from 28.6 GB to approximately 2 GB.
+This work is ongoing, so the public repository contains project context and
+selected code rather than unpublished experimental results.
 
 `Python` `JAX` `Pallas` `SQL` `Google Cloud TPU`
 
 ### [Language Model from Scratch](https://github.com/samixyzdev/A_language_model_from_scratch)
 
-A from-scratch implementation of core language-model components and training
-infrastructure. I keep this project because I wrote the implementation myself
-and use it to understand the mechanics behind modern language models rather
-than treating the framework as a black box.
+A from-scratch implementation of the core components behind a Transformer
+language model. I implemented BPE training and tokenization, embeddings,
+RMSNorm, SwiGLU, scaled dot-product attention, multi-head self-attention, RoPE,
+and complete Transformer blocks, with unit tests against reference outputs.
+
+The goal of this project was to understand each operation and tensor shape
+directly instead of treating a high-level model implementation as a black box.
 
 `Python` `PyTorch` `Transformers`
 
@@ -53,16 +62,16 @@ than treating the framework as a black box.
 
 | Project | What I implemented |
 | --- | --- |
-| User-level thread library | Preemptive scheduling across multiple CPUs, mutexes, condition variables, and interrupt handling |
-| Multithreaded network file server | Concurrent TCP request handling, fine-grained read-write locking, and crash-consistent disk updates |
-| Virtual memory manager | Page faults, swap- and file-backed pages, Clock replacement, and copy-on-write fork |
+| User-level thread library | Built preemptive scheduling across multiple CPUs, Mesa-style mutexes and condition variables, spinlocks, and timer/IPI handling |
+| Multithreaded network file server | Implemented concurrent TCP request processing, hand-over-hand read-write locking, protocol validation, and crash-consistent disk updates |
+| Virtual memory manager | Managed page faults, swap- and file-backed pages, Clock replacement, eager swap reservation, and copy-on-write fork |
 
 ### Computer architecture
 
 Co-designed a two-way superscalar processor with a five-stage pipeline,
 limited out-of-order issue, branch prediction, hazard resolution, and
 multi-level forwarding. I verified the RTL against cycle-accurate memory traces
-and synthesized it under a 20 ns clock constraint.
+and synthesized it to a gate-level netlist under a 20 ns clock constraint.
 
 `SystemVerilog` `VCS` `Verdi` `Synopsys Design Compiler`
 
