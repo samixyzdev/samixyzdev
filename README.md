@@ -12,10 +12,10 @@
   <a href="https://pubmed.ncbi.nlm.nih.gov/41282750/">Publication</a>
 </p>
 
-I'm an undergraduate at the University of Michigan studying Data Science and
-Mathematical Sciences, with a minor in Computer Science. I am interested in how
-database workloads map onto specialized hardware, from query execution and data
-layout down to memory movement and accelerator architecture.
+I'm an undergraduate at the University of Michigan studying Computer Science
+and Mathematical Sciences, with a minor in Electrical Engineering. I am
+interested in how database workloads map onto specialized hardware, from query
+execution and data layout down to memory movement and accelerator architecture.
 
 ## `current focus`
 
@@ -40,6 +40,16 @@ flowchart LR
 Google-sponsored research at Michigan CSE on accelerating analytical database
 queries with TPUs. I use JAX and Pallas to study query execution, data layout,
 and the relationship between database operators and specialized hardware.
+
+<p align="center">
+  <img src="./assets/systolic-array.svg" width="100%" alt="Animated 4 by 4 systolic array showing activations and weights flowing through multiply-accumulate processing elements">
+</p>
+
+<p align="center">
+  <sub>Conceptual 4×4 matmul dataflow: activations move horizontally, weights
+  move vertically, and processing elements accumulate in a diagonal
+  wavefront.</sub>
+</p>
 
 This work is ongoing, so the public repository contains project context and
 selected code rather than unpublished experimental results.
