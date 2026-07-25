@@ -46,9 +46,9 @@ and the relationship between database operators and specialized hardware.
 </p>
 
 <p align="center">
-  <sub>Conceptual 4×4 matmul dataflow: activations move horizontally, weights
-  move vertically, and processing elements accumulate in a diagonal
-  wavefront.</sub>
+  <sub>One k-slice of a 4×4 matmul: skewed activations and weights meet at each
+  PE, which performs C[i,j] += A[i,k] × B[k,j]. Repeating the wave for every k
+  produces the final output matrix.</sub>
 </p>
 
 This work is ongoing, so the public repository contains project context and
