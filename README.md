@@ -1,113 +1,131 @@
-<h1 align="center">Xinyu Zhang</h1>
+# Database execution on specialized hardware
+
+**Database systems · computer architecture · specialized hardware**
+
+I study how database execution changes when the compute substrate is
+specialized hardware. My current investigation explores analytical query
+execution on TPUs with JAX and Pallas.
+
+I am an undergraduate at the University of Michigan studying Computer Science
+and Mathematical Sciences, with a minor in Electrical Engineering.
+
+[Current investigation](#current-investigation-tpu-db) ·
+[Systems evidence](#selected-systems-evidence) ·
+[Research](#research-and-publication)
+
+## Current investigation: TPU-DB
+
+**Question.** How should analytical operators, data layouts, and memory
+movement change when the execution substrate is a TPU rather than a CPU?
+
+**What I am investigating.** I lower database operators into JAX and Pallas
+kernels, then study tiling, layout, movement, and execution behavior on Google
+Cloud TPU.
+
+**Evidence.** Correctness checks, operator-level benchmarks, layout
+experiments, and hardware-aware execution traces.
+
+**Status.** Active Google-sponsored research at Michigan CSE. Research code
+and unpublished measurements remain private while the work is in progress.
+
+**Methods.** `Python` · `JAX` · `Pallas` · `SQL` · `Google Cloud TPU`
+
+## Execution path
+
+The project is an iterative systems investigation, not a fixed linear
+pipeline. Measurements feed back into operator lowering, tiling, and layout.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/TPU-Architecture-4285F4?style=flat-square" alt="TPU Architecture">
-  <img src="https://img.shields.io/badge/Database-Systems-34A853?style=flat-square" alt="Database Systems">
-  <img src="https://img.shields.io/badge/Low--Level-Systems-EA4335?style=flat-square" alt="Low-Level Systems">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/execution-path-mobile.svg">
+    <img src="./assets/execution-path.svg" width="100%" alt="Static systems cross-section connecting a relational operator to a JAX and Pallas execution plan, memory movement and an accelerator substrate, then feeding correctness, latency, and bandwidth measurements back into layout and kernel decisions">
+  </picture>
 </p>
+
+## Animated MXU dataflow
+
+This conceptual output-stationary instrument shows a complete 3×3 matrix
+multiplication. Blue A packets move right, yellow B packets move down, each PE
+accumulates three products, and teal double-line latches mark the diagonal wave
+of ready C outputs. It illustrates the dataflow model; it is not a physical TPU
+floorplan.
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/xinyu-zhang1">LinkedIn</a> ·
-  <a href="mailto:zhangxinyu040326@163.com">Email</a> ·
-  <a href="https://pubmed.ncbi.nlm.nih.gov/41282750/">Publication</a>
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/systolic-array-mobile.svg">
+    <img src="./assets/systolic-array.svg" width="100%" alt="Animated 3 by 3 output-stationary systolic array: blue A packets stream right, yellow B packets stream down, each processing element performs three multiply-accumulates, and teal C outputs become ready diagonally">
+  </picture>
 </p>
 
-I'm an undergraduate at the University of Michigan studying Computer Science
-and Mathematical Sciences, with a minor in Electrical Engineering. I am
-interested in how database workloads map onto specialized hardware, from query
-execution and data layout down to memory movement and accelerator architecture.
+## Selected systems evidence
 
-## `current focus`
+### Two-way superscalar processor
 
-- Studying database execution on Google Cloud TPU
-- Understanding how query processing and data movement interact with
-  accelerator architecture
-- Building a low-level foundation through operating systems, concurrency, and
-  processor design
+**Question.** How much instruction-level parallelism can a compact pipeline
+extract while keeping hazards and forwarding understandable?
 
-```mermaid
-flowchart LR
-    A[Database workloads] --> B[Query execution]
-    B --> C[Data layout and movement]
-    C --> D[TPU architecture]
-    D --> E[Systems analysis]
-```
+**Built.** A five-stage, two-way superscalar processor with limited
+out-of-order issue, branch prediction, hazard resolution, and multi-level
+forwarding.
 
-## `selected work`
+**Evidence.** Cycle-accurate memory-trace verification and gate-level synthesis
+under a 20 ns clock constraint.
 
-### [TPU-DB](https://github.com/samixyzdev/tpu-db)
+**Status.** Completed course project; implementation is private.
 
-Google-sponsored research at Michigan CSE on accelerating analytical database
-queries with TPUs. I use JAX and Pallas to study query execution, data layout,
-and the relationship between database operators and specialized hardware.
+**Methods.** `SystemVerilog` · `VCS` · `Verdi` · `Synopsys Design Compiler`
 
-<p align="center">
-  <img src="./assets/systolic-array.svg" width="100%" alt="Animated 4 by 4 systolic array showing activations and weights flowing through multiply-accumulate processing elements">
-</p>
+### Operating systems and concurrency
 
-<p align="center">
-  <sub>Full 3×3 matmul dataflow: all A elements stream right by row, all B
-  elements stream down by column, and each PE performs three synchronized MACs
-  before its C[i,j] output becomes ready.</sub>
-</p>
+**Question.** Which invariants keep concurrent runtimes, network services, and
+virtual memory correct under interleaving and failure?
 
-This work is ongoing, so the public repository contains project context and
-selected code rather than unpublished experimental results.
+**Built.** A preemptive user-level thread library, a concurrent TCP file server
+with hand-over-hand read-write locking and crash-consistent updates, and a
+virtual memory manager with Clock replacement and copy-on-write fork.
 
-`Python` `JAX` `Pallas` `SQL` `Google Cloud TPU`
+**Evidence.** Adversarial concurrency tests, protocol validation, fault-path
+testing, and correctness traces.
 
-### [Language Model from Scratch](https://github.com/samixyzdev/A_language_model_from_scratch)
+**Status.** Completed systems coursework; implementations are private.
 
-A from-scratch implementation of the core components behind a Transformer
-language model. I implemented BPE training and tokenization, embeddings,
-RMSNorm, SwiGLU, scaled dot-product attention, multi-head self-attention, RoPE,
-and complete Transformer blocks, with unit tests against reference outputs.
+**Methods.** `C++` · `Linux` · `Threads` · `TCP` · `Virtual memory`
 
-The goal of this project was to understand each operation and tensor shape
-directly instead of treating a high-level model implementation as a black box.
+### Language-model components from first principles
 
-`Python` `PyTorch` `Transformers`
+**Question.** What is hidden behind the high-level interfaces of a Transformer
+implementation?
 
-### Low-level systems
+**Built.** BPE training and tokenization, embeddings, RMSNorm, SwiGLU,
+scaled dot-product attention, multi-head self-attention, RoPE, and Transformer
+blocks with reference-output tests.
 
-| Project | What I implemented |
-| --- | --- |
-| User-level thread library | Built preemptive scheduling across multiple CPUs, Mesa-style mutexes and condition variables, spinlocks, and timer/IPI handling |
-| Multithreaded network file server | Implemented concurrent TCP request processing, hand-over-hand read-write locking, protocol validation, and crash-consistent disk updates |
-| Virtual memory manager | Managed page faults, swap- and file-backed pages, Clock replacement, eager swap reservation, and copy-on-write fork |
+**Evidence.** [Coursework repository and visible implementation scope](https://github.com/samixyzdev/A_language_model_from_scratch).
 
-### Computer architecture
+**Status.** Supporting coursework, not a current research focus.
 
-Co-designed a two-way superscalar processor with a five-stage pipeline,
-limited out-of-order issue, branch prediction, hazard resolution, and
-multi-level forwarding. I verified the RTL against cycle-accurate memory traces
-and synthesized it to a gate-level netlist under a 20 ns clock constraint.
+**Methods.** `Python` · `PyTorch` · `Transformers`
 
-`SystemVerilog` `VCS` `Verdi` `Synopsys Design Compiler`
+## Research and publication
 
-## `publication`
-
-Co-authored
+I co-authored
 [PANCDetect: Early Detection of Pancreatic Cancer from Multimodal EHR Data with LLM Embeddings](https://pubmed.ncbi.nlm.nih.gov/41282750/),
-contributing to clinical data preprocessing and analysis for a multimodal
-machine-learning study.
+a preprint for which I contributed to clinical data preprocessing and analysis.
 
-## `toolbox`
+## Methods and contact
 
-**Languages:** C, C++, Python, SQL, SystemVerilog<br>
-**Systems:** Linux, multithreading, synchronization, networking, virtual memory<br>
-**Performance:** profiling, benchmarking, memory-layout analysis, accelerator kernels
+I work across operator semantics, systems implementation, profiling,
+benchmarking, memory-layout analysis, and accelerator kernels. The easiest way
+to reach me is through
+[LinkedIn](https://www.linkedin.com/in/xinyu-zhang1) or
+[email](mailto:zhangxinyu040326@163.com).
 
-## `contribution activity`
+---
+
+<sub>Contribution activity</sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/samixyzdev/samixyzdev/output/github-contribution-grid-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/samixyzdev/samixyzdev/output/github-contribution-grid-snake.svg">
   <img alt="GitHub contribution grid snake animation" src="https://raw.githubusercontent.com/samixyzdev/samixyzdev/output/github-contribution-grid-snake.svg">
 </picture>
-
-## `contact`
-
-The easiest way to reach me is through
-[LinkedIn](https://www.linkedin.com/in/xinyu-zhang1) or
-[email](mailto:zhangxinyu040326@163.com).

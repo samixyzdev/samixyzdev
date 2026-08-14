@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">Database execution research loop</title>
+  <desc id="desc">A layered systems cross-section connects relational operators to a JAX and Pallas execution plan, memory movement and an accelerator substrate. Correctness, latency, and bandwidth measurements feed back into layout and kernel decisions.</desc>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --panel: #ffffff;
+      --ink: #152335;
+      --muted: #5d6b7d;
+      --line: #b9c5d2;
+      --blue: #2563eb;
+      --yellow: #d89a00;
+      --teal: #0f8f86;
+      --blue-soft: #eaf1ff;
+      --yellow-soft: #fff5cf;
+      --teal-soft: #e3f6f3;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --panel: #111c2b;
+        --ink: #edf4ff;
+        --muted: #a8b6c8;
+        --line: #3d5068;
+        --blue: #69a5ff;
+        --yellow: #f4c84a;
+        --teal: #47d7c8;
+        --blue-soft: #132a4f;
+        --yellow-soft: #382f16;
+        --teal-soft: #123a39;
+      }
+    }
+
+    text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      fill: var(--ink);
+    }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0; }
+    .label { font-size: 19px; font-weight: 700; }
+    .detail { font-size: 13px; fill: var(--muted); }
+    .layer { fill: var(--panel); stroke: var(--line); stroke-width: 1.5; }
+    .measure { fill: var(--teal-soft); stroke: var(--teal); stroke-width: 1.5; }
+    .flow { fill: none; stroke: var(--blue); stroke-width: 3; }
+    .feedback { fill: none; stroke: var(--yellow); stroke-width: 3; stroke-dasharray: 8 7; }
+  </style>
+
+  <defs>
+    <marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="var(--blue)"/>
+    </marker>
+    <marker id="yellow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="var(--yellow)"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="958" height="358" rx="12" fill="var(--bg)" stroke="var(--line)" stroke-opacity="0.55"/>
+
+  <text x="40" y="34" class="eyebrow" fill="var(--blue)">SYSTEM CROSS-SECTION</text>
+  <text x="40" y="58" class="detail">The substrate changes; the research loop remains.</text>
+
+  <g transform="translate(40 82)">
+    <rect width="600" height="62" rx="7" class="layer"/>
+    <rect width="8" height="62" rx="4" fill="var(--blue)"/>
+    <text x="30" y="27" class="label">Query / relational operator</text>
+    <text x="30" y="48" class="detail">filter · join · aggregation</text>
+  </g>
+
+  <path d="M340 144 V168" class="flow" marker-end="url(#blue-arrow)"/>
+  <text x="360" y="162" class="detail">lower · tile · layout</text>
+
+  <g transform="translate(40 176)">
+    <rect width="600" height="62" rx="7" class="layer"/>
+    <rect width="8" height="62" rx="4" fill="var(--yellow)"/>
+    <text x="30" y="27" class="label">JAX / Pallas execution plan</text>
+    <text x="30" y="48" class="detail">operator semantics become executable kernels</text>
+  </g>
+
+  <path d="M340 238 V262" class="flow" marker-end="url(#blue-arrow)"/>
+
+  <g transform="translate(40 270)">
+    <rect width="600" height="62" rx="7" class="layer"/>
+    <rect width="8" height="62" rx="4" fill="var(--teal)"/>
+    <text x="30" y="27" class="label">Memory movement / accelerator substrate</text>
+    <text x="30" y="48" class="detail">current instrument: Google Cloud TPU</text>
+  </g>
+
+  <g transform="translate(690 112)">
+    <rect width="230" height="150" rx="10" class="measure"/>
+    <text x="22" y="32" class="eyebrow" fill="var(--teal)">MEASURE</text>
+    <text x="22" y="68" class="label">Correctness</text>
+    <text x="22" y="96" class="label">Latency</text>
+    <text x="22" y="124" class="label">Bandwidth</text>
+  </g>
+
+  <path d="M640 207 H680" class="flow" marker-end="url(#blue-arrow)"/>
+  <path d="M805 270 V310 H665" class="feedback" marker-end="url(#yellow-arrow)"/>
+  <text x="706" y="334" class="detail" fill="var(--yellow)">revise layout / kernel</text>
+</svg>
