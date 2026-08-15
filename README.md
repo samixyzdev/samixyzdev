@@ -30,30 +30,37 @@ and unpublished measurements remain private while the work is in progress.
 
 **Methods.** `Python` · `JAX` · `Pallas` · `SQL` · `Google Cloud TPU`
 
+## Clocked wavefront observatory
+
+This conceptual output-stationary trace follows one complete 3×3 matrix
+multiplication. Blue A packets move right, amber B packets move down, and a
+white phase-lock ring appears only when an operand pair meets at a crosspoint.
+Each node locks three accumulator arcs before its teal output contact closes.
+
+The active MAC envelope is `1 · 3 · 6 · 7 · 6 · 3 · 1`; nine outputs become
+ready in an anti-diagonal `1 · 2 · 3 · 2 · 1` wave. In total, the trace records
+27 MAC events and 9 completed C values.
+
+<p align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/systolic-array-mobile.svg">
+    <img src="./assets/systolic-array.svg" width="100%" alt="Animated conceptual cycle trace of a 3 by 3 output-stationary MXU: blue A packets and amber B packets meet at circular crosspoints, three accumulator arcs lock per node, and teal output contacts close diagonally">
+  </picture>
+</p>
+
+<p align="center">
+  <sub>Conceptual cycle trace — not a physical TPU floorplan.</sub>
+</p>
+
 ## Execution path
 
-The project is an iterative systems investigation, not a fixed linear
+The broader project is an iterative systems investigation, not a fixed linear
 pipeline. Measurements feed back into operator lowering, tiling, and layout.
 
 <p align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="./assets/execution-path-mobile.svg">
     <img src="./assets/execution-path.svg" width="100%" alt="Static systems cross-section connecting a relational operator to a JAX and Pallas execution plan, memory movement and an accelerator substrate, then feeding correctness, latency, and bandwidth measurements back into layout and kernel decisions">
-  </picture>
-</p>
-
-## Animated MXU dataflow
-
-This conceptual output-stationary instrument shows a complete 3×3 matrix
-multiplication. Blue A packets move right, yellow B packets move down, each PE
-accumulates three products, and teal double-line latches mark the diagonal wave
-of ready C outputs. It illustrates the dataflow model; it is not a physical TPU
-floorplan.
-
-<p align="center">
-  <picture>
-    <source media="(max-width: 600px)" srcset="./assets/systolic-array-mobile.svg">
-    <img src="./assets/systolic-array.svg" width="100%" alt="Animated 3 by 3 output-stationary systolic array: blue A packets stream right, yellow B packets stream down, each processing element performs three multiply-accumulates, and teal C outputs become ready diagonally">
   </picture>
 </p>
 
@@ -119,13 +126,3 @@ benchmarking, memory-layout analysis, and accelerator kernels. The easiest way
 to reach me is through
 [LinkedIn](https://www.linkedin.com/in/xinyu-zhang1) or
 [email](mailto:zhangxinyu040326@163.com).
-
----
-
-<sub>Contribution activity</sub>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/samixyzdev/samixyzdev/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/samixyzdev/samixyzdev/output/github-contribution-grid-snake.svg">
-  <img alt="GitHub contribution grid snake animation" src="https://raw.githubusercontent.com/samixyzdev/samixyzdev/output/github-contribution-grid-snake.svg">
-</picture>
