@@ -71,9 +71,20 @@ pipeline. Measurements feed back into operator lowering, tiling, and layout.
 **Question.** How much instruction-level parallelism can a compact pipeline
 extract while keeping hazards and forwarding understandable?
 
-**Built.** A five-stage, two-way superscalar processor with limited
-out-of-order issue, branch prediction, hazard resolution, and multi-level
-forwarding.
+**Built.** A two-wide LC2K core with micro-op lowering, an eight-entry
+micro-op queue, a four-entry windowed issue engine, dual ALUs, one
+load/store-capable lane, and explicit writeback bypass paths.
+
+<p align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/lc2k-pipeline-mobile.svg">
+    <img src="./assets/lc2k-pipeline.svg" width="100%" alt="Animated RTL-derived trace of a two-wide LC2K core: two loads split into address and memory micro-ops, noncontiguous address micro-ops issue together, a load holds the issue packet while memory responds, and r2 forwards from writeback into an ADD producing r3 equals 11">
+  </picture>
+</p>
+
+<p align="center">
+  <sub>Cycle-accurate playback from an RTL simulation of <code>simple_add</code>; short color rails identify instructions that entered decode together, while token outlines identify operation type. The initial I-cache fill is omitted and animation time is slowed for inspection. Topology is schematic, not a physical floorplan.</sub>
+</p>
 
 **Evidence.** Cycle-accurate memory-trace verification and gate-level synthesis
 under a 20 ns clock constraint.
