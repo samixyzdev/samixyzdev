@@ -4,31 +4,31 @@
 
 I study how database execution changes when the compute substrate is
 specialized hardware. My current investigation explores analytical query
-execution on TPUs with JAX and Pallas.
+execution on emerging accelerator platforms.
 
 I am an undergraduate at the University of Michigan studying Computer Science
 and Mathematical Sciences, with a minor in Electrical Engineering.
 
-[Current investigation](#current-investigation-tpu-db) ·
+[Current investigation](#current-investigation) ·
 [Systems evidence](#selected-systems-evidence) ·
 [Research](#research-and-publication)
 
-## Current investigation: TPU-DB
+## Current investigation
 
 **Question.** How should analytical operators, data layouts, and memory
-movement change when the execution substrate is a TPU rather than a CPU?
+movement change when the execution substrate is a specialized accelerator?
 
-**What I am investigating.** I lower database operators into JAX and Pallas
-kernels, then study tiling, layout, movement, and execution behavior on Google
-Cloud TPU.
+**What I am investigating.** I study how database operators can be lowered into
+accelerator-native kernels, then examine tiling, layout, data movement, and
+execution behavior.
 
 **Evidence.** Correctness checks, operator-level benchmarks, layout
 experiments, and hardware-aware execution traces.
 
-**Status.** Active Google-sponsored research at Michigan CSE. Research code
-and unpublished measurements remain private while the work is in progress.
+**Status.** Active faculty-supervised systems research. Research code and
+unpublished measurements remain private while the work is in progress.
 
-**Methods.** `Python` · `JAX` · `Pallas` · `SQL` · `Google Cloud TPU`
+**Methods.** `Python` · `SQL` · `Accelerator programming` · `Systems profiling`
 
 ## Clocked wavefront observatory
 
@@ -49,7 +49,7 @@ ready in an anti-diagonal `1 · 2 · 3 · 2 · 1` wave. In total, the trace reco
 </p>
 
 <p align="center">
-  <sub>Conceptual cycle trace — not a physical TPU floorplan.</sub>
+  <sub>Conceptual cycle trace — not a physical accelerator floorplan.</sub>
 </p>
 
 ## Execution path
@@ -60,7 +60,7 @@ pipeline. Measurements feed back into operator lowering, tiling, and layout.
 <p align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="./assets/execution-path-mobile.svg">
-    <img src="./assets/execution-path.svg" width="100%" alt="Static systems cross-section connecting a relational operator to a JAX and Pallas execution plan, memory movement and an accelerator substrate, then feeding correctness, latency, and bandwidth measurements back into layout and kernel decisions">
+    <img src="./assets/execution-path.svg" width="100%" alt="Static systems cross-section connecting a relational operator to an accelerator-native execution plan, memory movement and an accelerator substrate, then feeding correctness, latency, and bandwidth measurements back into layout and kernel decisions">
   </picture>
 </p>
 

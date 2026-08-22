@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
   <title id="title">Database execution research loop</title>
-  <desc id="desc">A layered systems cross-section connects relational operators to a JAX and Pallas execution plan, memory movement and an accelerator substrate. Correctness, latency, and bandwidth measurements feed back into layout and kernel decisions.</desc>
+  <desc id="desc">A layered systems cross-section connects relational operators to an accelerator-native execution plan, memory movement and an accelerator substrate. Correctness, latency, and bandwidth measurements feed back into layout and kernel decisions.</desc>
   <style>
     :root {
       --bg: #f7f9fc;
@@ -72,7 +72,7 @@
   <g transform="translate(40 176)">
     <rect width="600" height="62" rx="7" class="layer"/>
     <rect width="8" height="62" rx="4" fill="var(--yellow)"/>
-    <text x="30" y="27" class="label">JAX / Pallas execution plan</text>
+    <text x="30" y="27" class="label">Accelerator execution plan</text>
     <text x="30" y="48" class="detail">operator semantics become executable kernels</text>
   </g>
 
@@ -82,7 +82,7 @@
     <rect width="600" height="62" rx="7" class="layer"/>
     <rect width="8" height="62" rx="4" fill="var(--teal)"/>
     <text x="30" y="27" class="label">Memory movement / accelerator substrate</text>
-    <text x="30" y="48" class="detail">current instrument: Google Cloud TPU</text>
+    <text x="30" y="48" class="detail">current platform: accelerator hardware</text>
   </g>
 
   <g transform="translate(690 112)">
