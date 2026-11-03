@@ -66,13 +66,31 @@ The final result is `r3 = 11`.
 
 </details>
 
+### Tech stack
+
+**Languages**
+
+![Python](https://img.shields.io/badge/Python-334155?style=flat-square&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-334155?style=flat-square&logo=cplusplus&logoColor=white)
+![Go](https://img.shields.io/badge/Go-334155?style=flat-square&logo=go&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-334155?style=flat-square)
+![SystemVerilog](https://img.shields.io/badge/SystemVerilog-334155?style=flat-square)
+
+**Accelerated computing & ML**
+
+![JAX / Pallas](https://img.shields.io/badge/JAX%20%2F%20Pallas-334155?style=flat-square)
+![PyTorch](https://img.shields.io/badge/PyTorch-334155?style=flat-square&logo=pytorch&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-334155?style=flat-square&logo=pandas&logoColor=white)
+
+**Infrastructure & profiling**
+
+![Linux](https://img.shields.io/badge/Linux-334155?style=flat-square&logo=linux&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google%20Cloud-334155?style=flat-square&logo=googlecloud&logoColor=white)
+![XProf](https://img.shields.io/badge/XProf-334155?style=flat-square)
+
 ### Publications
 
 **[PANCDetect](https://pubmed.ncbi.nlm.nih.gov/41282750/)** · Co-author, preprint
 
 Early detection of pancreatic cancer from multimodal EHR data with LLM embeddings.
 Contributed to clinical data preprocessing and analysis.
-
----
-
-<sub>Python · C++ · SQL · SystemVerilog · PyTorch · Linux</sub>
