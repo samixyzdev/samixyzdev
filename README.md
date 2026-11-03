@@ -1,4 +1,4 @@
-# Xinyu Zhang
+# Sami (昕雨) Zhang
 
 **Database systems · Computer architecture · Accelerated computing**
 
@@ -9,8 +9,7 @@ I study how analytical queries execute on specialized hardware—from operator
 semantics to kernels, memory layouts, and data movement.
 
 [Email](mailto:zhangxinyu040326@163.com) ·
-[LinkedIn](https://www.linkedin.com/in/xinyu-zhang1) ·
-[Publication](https://pubmed.ncbi.nlm.nih.gov/41282750/)
+[LinkedIn](https://www.linkedin.com/in/xinyu-zhang1)
 
 ---
 
@@ -46,14 +45,14 @@ This illustrates execution mechanics, not a physical accelerator floorplan.
 <sub>Processor and operating-systems implementations are private coursework.</sub>
 
 <details>
-<summary>A closer look · processor execution trace (V2)</summary>
+<summary>A closer look · processor execution trace (V2.1)</summary>
 
 <picture>
   <source media="(max-width: 600px)" srcset="./assets/lc2k-pipeline-mobile.svg">
   <img src="./assets/lc2k-pipeline.svg" width="100%" alt="Two-wide LC2K execution trace showing load micro-ops, memory stalls, and writeback forwarding into an add.">
 </picture>
 
-**TRACE / V2** — abstract stage snapshots from the archived RTL-derived
+**TRACE / V2.1** — abstract stage snapshots from the archived RTL-derived
 `simple_add` playback, slowed for inspection. Initial instruction-cache fill
 is omitted; occupied queue slots are compacted for readability. This is an
 execution view, not a circuit schematic.
@@ -67,7 +66,7 @@ The final result is `r3 = 11`.
 
 </details>
 
-### Publication
+### Publications
 
 **[PANCDetect](https://pubmed.ncbi.nlm.nih.gov/41282750/)** · Co-author, preprint
 
