@@ -56,6 +56,13 @@ This illustrates execution mechanics, not a physical accelerator floorplan.
 Archived RTL-derived playback of `simple_add`, slowed for inspection;
 initial instruction-cache fill omitted. Topology is schematic.
 
+**Reading the trace.** `EA` computes a load address; `LD` reads memory.
+This core temporarily stores the address in the destination register before
+replacing it with the loaded value: `r1: 0 → 4 → 5`, `r2: 0 → 5 → 6`.
+Register values and the active writeback describe different points in the
+clock cycle; the highlighted bypass supplies `r2 = 6` to the dependent ADD.
+The final result is `r3 = 11`.
+
 </details>
 
 ### Publication
