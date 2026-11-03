@@ -46,15 +46,17 @@ This illustrates execution mechanics, not a physical accelerator floorplan.
 <sub>Processor and operating-systems implementations are private coursework.</sub>
 
 <details>
-<summary>A closer look · processor execution trace</summary>
+<summary>A closer look · processor execution trace (V2)</summary>
 
 <picture>
   <source media="(max-width: 600px)" srcset="./assets/lc2k-pipeline-mobile.svg">
   <img src="./assets/lc2k-pipeline.svg" width="100%" alt="Two-wide LC2K execution trace showing load micro-ops, memory stalls, and writeback forwarding into an add.">
 </picture>
 
-Archived RTL-derived playback of `simple_add`, slowed for inspection;
-initial instruction-cache fill omitted. Topology is schematic.
+**TRACE / V2** — abstract stage snapshots from the archived RTL-derived
+`simple_add` playback, slowed for inspection. Initial instruction-cache fill
+is omitted; occupied queue slots are compacted for readability. This is an
+execution view, not a circuit schematic.
 
 **Reading the trace.** `EA` computes a load address; `LD` reads memory.
 This core temporarily stores the address in the destination register before

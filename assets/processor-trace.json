@@ -1,0 +1,290 @@
+{
+  "source": "Archived SVG snapshots from commit 7c59960; presentation-level extraction, not a new simulation.",
+  "frames": [
+    {
+      "cycle": "PRE",
+      "decode": [
+        "I0.LW",
+        "I1.LW"
+      ],
+      "queue": [],
+      "execute": [
+        null,
+        null
+      ],
+      "writeback": [
+        null,
+        null
+      ],
+      "registers": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "results": [
+        "",
+        ""
+      ]
+    },
+    {
+      "cycle": "CLK 0",
+      "decode": [
+        "I2.ADD",
+        "I3.HALT"
+      ],
+      "queue": [
+        "I0.EA",
+        "I0.LD",
+        "I1.EA",
+        "I1.LD"
+      ],
+      "execute": [
+        null,
+        null
+      ],
+      "writeback": [
+        null,
+        null
+      ],
+      "registers": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "results": [
+        "",
+        ""
+      ]
+    },
+    {
+      "cycle": "CLK 1",
+      "decode": [
+        "I4.ADD",
+        "I5.ADD"
+      ],
+      "queue": [
+        "I0.LD",
+        "I1.LD",
+        "I2.ADD",
+        "I3.HLT"
+      ],
+      "execute": [
+        "I0.EA",
+        "I1.EA"
+      ],
+      "writeback": [
+        null,
+        null
+      ],
+      "registers": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "results": [
+        "0+4=4",
+        "0+5=5"
+      ]
+    },
+    {
+      "cycle": "CLK 2",
+      "decode": [
+        "I6.ADD",
+        "I7.ADD"
+      ],
+      "queue": [
+        "I1.LD",
+        "I2.ADD",
+        "I3.HLT",
+        "I4.ADD",
+        "I5.ADD"
+      ],
+      "execute": [
+        null,
+        "I0.LD"
+      ],
+      "writeback": [
+        "I0.EA",
+        "I1.EA"
+      ],
+      "registers": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "results": [
+        "",
+        "4+0=4"
+      ]
+    },
+    {
+      "cycle": "CLK 3",
+      "decode": [
+        "I8.ADD"
+      ],
+      "queue": [
+        "I6.ADD",
+        "I7.ADD",
+        "I1.LD",
+        "I2.ADD",
+        "I3.HLT",
+        "I4.ADD",
+        "I5.ADD"
+      ],
+      "execute": [
+        null,
+        "I0.LD"
+      ],
+      "writeback": [
+        null,
+        null
+      ],
+      "registers": [
+        "4",
+        "5",
+        "0",
+        "0"
+      ],
+      "results": [
+        "",
+        "4+0=4"
+      ]
+    },
+    {
+      "cycle": "CLK 4",
+      "decode": [
+        "I9.ADD"
+      ],
+      "queue": [
+        "I6.ADD",
+        "I7.ADD",
+        "I8.ADD",
+        "I2.ADD",
+        "I3.HLT",
+        "I4.ADD",
+        "I5.ADD"
+      ],
+      "execute": [
+        null,
+        "I1.LD"
+      ],
+      "writeback": [
+        null,
+        "I0.LD"
+      ],
+      "registers": [
+        "4",
+        "5",
+        "0",
+        "0"
+      ],
+      "results": [
+        "",
+        "5+0=5"
+      ]
+    },
+    {
+      "cycle": "CLK 5",
+      "decode": [
+        "I10.ADD"
+      ],
+      "queue": [
+        "I6.ADD",
+        "I7.ADD",
+        "I8.ADD",
+        "I9.ADD",
+        "I3.HLT",
+        "I4.ADD",
+        "I5.ADD"
+      ],
+      "execute": [
+        "I2.ADD",
+        null
+      ],
+      "writeback": [
+        null,
+        "I1.LD"
+      ],
+      "registers": [
+        "5",
+        "5",
+        "0",
+        "0"
+      ],
+      "results": [
+        "5+6=11",
+        ""
+      ]
+    },
+    {
+      "cycle": "CLK 6",
+      "decode": [
+        "I11.ADD"
+      ],
+      "queue": [
+        "I6.ADD",
+        "I7.ADD",
+        "I8.ADD",
+        "I9.ADD",
+        "I10.ADD",
+        "I4.ADD",
+        "I5.ADD"
+      ],
+      "execute": [
+        "I3.HLT",
+        null
+      ],
+      "writeback": [
+        "I2.ADD",
+        null
+      ],
+      "registers": [
+        "5",
+        "6",
+        "0",
+        "0"
+      ],
+      "results": [
+        "0+0=0",
+        ""
+      ]
+    },
+    {
+      "cycle": "CLK 7",
+      "decode": [
+        "I12.ADD",
+        "I13.ADD"
+      ],
+      "queue": [
+        "I6.ADD",
+        "I7.ADD",
+        "I8.ADD",
+        "I9.ADD",
+        "I10.ADD",
+        "I11.ADD"
+      ],
+      "execute": [
+        "I4.ADD",
+        "I5.ADD"
+      ],
+      "writeback": [
+        "I3.HLT",
+        null
+      ],
+      "registers": [
+        "5",
+        "6",
+        "11",
+        "0"
+      ],
+      "results": [
+        "0+0=0",
+        "0+0=0"
+      ]
+    }
+  ]
+}
