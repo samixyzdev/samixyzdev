@@ -60,7 +60,8 @@ initial instruction-cache fill omitted. Topology is schematic.
 
 ### Publication
 
-**[PANCDetect](https://pubmed.ncbi.nlm.nih.gov/41282750/)** · Co-author, preprint  
+**[PANCDetect](https://pubmed.ncbi.nlm.nih.gov/41282750/)** · Co-author, preprint
+
 Early detection of pancreatic cancer from multimodal EHR data with LLM embeddings.
 Contributed to clinical data preprocessing and analysis.
 
