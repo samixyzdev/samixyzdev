@@ -70,23 +70,25 @@ The final result is `r3 = 11`.
 
 **Languages**
 
-![Python](https://img.shields.io/badge/Python-334155?style=flat-square&logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/C%2B%2B-334155?style=flat-square&logo=cplusplus&logoColor=white)
-![Go](https://img.shields.io/badge/Go-334155?style=flat-square&logo=go&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-334155?style=flat-square)
-![SystemVerilog](https://img.shields.io/badge/SystemVerilog-334155?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![Go](https://img.shields.io/badge/Go-007D9C?style=flat-square&logo=go&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square)
+![SystemVerilog](https://img.shields.io/badge/SystemVerilog-6750A4?style=flat-square)
 
 **Accelerated computing & ML**
 
-![JAX / Pallas](https://img.shields.io/badge/JAX%20%2F%20Pallas-334155?style=flat-square)
-![PyTorch](https://img.shields.io/badge/PyTorch-334155?style=flat-square&logo=pytorch&logoColor=white)
-![pandas](https://img.shields.io/badge/pandas-334155?style=flat-square&logo=pandas&logoColor=white)
+![CUDA](https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white)
+![JAX / Pallas](https://img.shields.io/badge/JAX%20%2F%20Pallas-5B5BD6?style=flat-square)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 
 **Infrastructure & profiling**
 
-![Linux](https://img.shields.io/badge/Linux-334155?style=flat-square&logo=linux&logoColor=white)
-![Google Cloud](https://img.shields.io/badge/Google%20Cloud-334155?style=flat-square&logo=googlecloud&logoColor=white)
-![XProf](https://img.shields.io/badge/XProf-334155?style=flat-square)
+![Linux](https://img.shields.io/badge/Linux-333333?style=flat-square&logo=linux&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+![NVIDIA Nsight](https://img.shields.io/badge/NVIDIA%20Nsight-76B900?style=flat-square&logo=nvidia&logoColor=white)
+![XProf](https://img.shields.io/badge/XProf-0F766E?style=flat-square)
 
 ### Publications
 
